@@ -81,7 +81,7 @@ namespace BuildingSmart.Serialization.Xml
 		/// <param name="root">The root object to write (typically IfcProject)</param>
 		public void WriteObject(string folderPath, object root)
 		{
-			if (Directory.Exists(folderPath))
+			if (!Directory.Exists(folderPath))
 				Directory.CreateDirectory(folderPath);
 			if (!Directory.Exists(folderPath))
 				throw new ArgumentNullException("Folder not Created");
