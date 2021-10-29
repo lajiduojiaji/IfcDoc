@@ -3785,7 +3785,7 @@ namespace IfcDoc.Schema.DOC
 	{
 		[DataMember(Order = 0)] [XmlArray] [SerializationProperty(Control = SerializationControl.ForceReference)] public List<DocTemplateDefinition> References { get; protected set; } // IfcDoc 6.3: references to chained templates
 		[DataMember(Order = 1)] [XmlAttribute] public string Prefix { get; set; }
-		[DataMember(Order = 2)] [XmlAttribute] public string UniqueId { get; set; } // V12.2 inserted
+		[DataMember(Order = 2)] [XmlAttribute] public string UniqueId { get; set; } = Guid.NewGuid().ToString();// V12.2 inserted
 
 		[IgnoreDataMember] [XmlIgnore] public string id { get { return (string.IsNullOrEmpty(Name) ? "" : Name + "_") + GlobalId.Format(GlobalId.Parse(UniqueId));  } }
 
