@@ -217,7 +217,7 @@ namespace IfcDoc.Utils
 					if (!string.IsNullOrEmpty(docObject.Documentation))
 						docObject.Documentation = docObject.Documentation.Trim();
 
-					if (schemaVersion < 12.1)
+					if (schemaVersion > 0 && schemaVersion < 12.1)
 					{
 						DocChangeSet docChangeSet = docObject as DocChangeSet;
 						if (docChangeSet != null)
