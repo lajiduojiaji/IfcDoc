@@ -3785,7 +3785,7 @@ namespace IfcDoc.Schema.DOC
 	{
 		[DataMember(Order = 0)] [XmlArray] [SerializationProperty(Control = SerializationControl.ForceReference)] public List<DocTemplateDefinition> References { get; protected set; } // IfcDoc 6.3: references to chained templates
 		[DataMember(Order = 1)] [XmlAttribute] public string Prefix { get; set; }
-		[DataMember(Order = 2)] [XmlAttribute] public string UniqueId { get; set; } = Guid.NewGuid().ToString();// V12.2 inserted
+		[DataMember(Order = 2)] [XmlAttribute] public string UniqueId { get; set; }// V12.2 inserted
 
 		[IgnoreDataMember] [XmlIgnore] public string id { get { return (string.IsNullOrEmpty(Name) ? "" : Name + "_") + GlobalId.Format(GlobalId.Parse(UniqueId));  } }
 
@@ -4723,7 +4723,22 @@ namespace IfcDoc.Schema.DOC
 	/// </summary>
 	public class DocOpReference : DocOpValue // ldfld|ldlen
 	{
-		[DataMember(Order = 0)] [XmlElement] public DocModelRuleEntity EntityRule { get; set; }
+		private DocModelRuleEntity _entityRule = null; 
+		[DataMember(Order = 0)] [XmlElement] public DocModelRuleEntity EntityRule
+		{
+			get
+			{
+				return _entityRule;
+			}
+			set
+			{
+				_entityRule = value;
+				if(string.IsNullOrEmpty(_entityRule.UniqueId))
+				{
+					_entityRule.UniqueId = Guid.NewGuid().ToString();
+				}
+			}
+		}
 
 		public override object Eval(object o, Hashtable population, DocTemplateDefinition template, Type valuetype, List<int> indexpath)
 		{
