@@ -3251,6 +3251,9 @@ namespace IfcDoc
 				{
 					this.toolStripMenuItemEditDelete.Enabled = true;
 
+					this.toolStripMenuItemContextInsert.Visible = true;
+					this.toolStripMenuItemContextInsertQuantity.Visible = true;
+
 					this.toolStripMenuItemContextIncludeQuantity.Visible = true;
 					this.toolStripMenuItemContextInclude.Visible = true;
 				}
@@ -4890,14 +4893,22 @@ namespace IfcDoc
 		private void toolStripMenuItemInsertQuantity_Click(object sender, EventArgs e)
 		{
 			TreeNode tn = this.treeView.SelectedNode;
-			if (tn.Tag == typeof(DocQuantity))
-			{
-				DocQuantity docQuantity = new DocQuantity();
-				this.m_project.Quantities.Add(docQuantity);
 
+			DocQuantity docQuantity = new DocQuantity();
+
+			if (tn.Tag is DocQuantity)
+			{
 				this.treeView.SelectedNode = this.LoadNode(tn, docQuantity, docQuantity.ToString(), false);
 				toolStripMenuItemEditRename_Click(this, e);
 			}
+			else if (tn.Tag is DocQuantitySet qset)
+			{
+				qset.Quantities.Add(docQuantity);
+			}
+
+			this.m_project.Quantities.Add(docQuantity);
+			this.treeView.SelectedNode = this.LoadNode(this.treeView.SelectedNode, docQuantity, docQuantity.Name, false);
+			this.toolStripMenuItemEditRename_Click(sender, e);
 		}
 
 		private void toolStripMenuItemInsertConceptRoot_Click(object sender, EventArgs e)
