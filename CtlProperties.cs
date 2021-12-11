@@ -913,19 +913,34 @@ namespace IfcDoc
 					DialogResult res = form.ShowDialog(this);
 					if (res == DialogResult.OK && form.SelectedEntity != null)
 					{
+						// create predefined type
+						string predefinedType;
+						if (form.SelectedConstant != null)
+						{
+							if (form.SelectedEnumeration == null)
+							{
+								predefinedType = "/" + form.SelectedConstant.Name;
+							}
+							else
+							{
+								predefinedType = "/" + form.SelectedEnumeration + "(." + form.SelectedConstant.Name + ".)";
+							}
+						}
+						else
+						{
+							return;
+						}
+
 						if (String.IsNullOrEmpty(docTemplate.ApplicableType))
 						{
 							docTemplate.ApplicableType = form.SelectedEntity.Name;
 						}
 						else
 						{
-							docTemplate.ApplicableType += "," + form.SelectedEntity.Name;
-						}
-
-						// append predefined type, if any
-						if (form.SelectedConstant != null)
-						{
-							docTemplate.ApplicableType += "/" + form.SelectedEnumeration + "(." + form.SelectedConstant.Name + ".)";
+							if (!docTemplate.ApplicableType.Contains(predefinedType))
+							{
+								docTemplate.ApplicableType += "," + form.SelectedEntity.Name;
+							}
 						}
 
 						this.LoadApplicability();
