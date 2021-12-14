@@ -915,6 +915,7 @@ namespace IfcDoc
 					{
 						// create predefined type
 						string predefinedType;
+						string applicableType;
 						if (form.SelectedConstant != null)
 						{
 							if (form.SelectedEnumeration == null)
@@ -928,18 +929,20 @@ namespace IfcDoc
 						}
 						else
 						{
-							return;
+							predefinedType = "";
 						}
+
+						applicableType = form.SelectedEntity.Name + predefinedType;
 
 						if (String.IsNullOrEmpty(docTemplate.ApplicableType))
 						{
-							docTemplate.ApplicableType = form.SelectedEntity.Name;
+							docTemplate.ApplicableType = applicableType;
 						}
 						else
 						{
-							if (!docTemplate.ApplicableType.Contains(predefinedType))
+							if (!docTemplate.ApplicableType.Contains(applicableType))
 							{
-								docTemplate.ApplicableType += "," + form.SelectedEntity.Name;
+								docTemplate.ApplicableType += "," + applicableType;
 							}
 						}
 
