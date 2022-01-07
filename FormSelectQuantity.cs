@@ -34,6 +34,16 @@ namespace IfcDoc
 				this.Text = "Include Quantity Sets";
 			}
 
+			foreach(DocQuantity quantity in this.m_project.Quantities)
+			{
+				TreeNode tnProp = new TreeNode();
+				tnProp.Tag = quantity;
+				tnProp.Text = quantity.Name;
+				tnProp.ImageIndex = 1;
+				tnProp.SelectedImageIndex = 1;
+				this.treeViewProperty.Nodes.Add(tnProp);
+			}
+
 			foreach (DocSection docSection in this.m_project.Sections)
 			{
 				foreach (DocSchema docSchema in docSection.Schemas)
