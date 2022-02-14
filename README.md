@@ -1,15 +1,10 @@
 
-IFC Documentation and Toolkit
-=============================
+NOTICE
+=================
 
-This repository contains the IFC schema, model view definitions, documentation, diagrams, examples, and tools for working with IFC data. 
 
-The IFC schema is published in multiple programming languages. Historically, the "base" schema has been defined using the EXPRESS data definition language (along with EXPRESS-G graphical language), mappings to XML serialization have been defined using configuration files, extensions for custom properties have been defined using "psdXML" files, and extensions for model views have been defined using "mvdXML" files.
-
-C# may now be used for capturing all of this information cohesively in a manner that can be easily viewed, compared, edited, and integrated with GitHub and common programming tools.
-
-Along with capturing IFC definitions, libraries are also provided for reading and writing IFC data in various encoding formats.
-
-Finally, tools are provided for converting and validating IFC data, publishing and consuming definitions with the buildingSmart Data Dictionary, and for editing IFC schemas and model view definitions.
-
-The "IfcKit" folder contains the IFC schema and components. The root folder contains source code for a Windows utility ("IfcDoc") that may be used to edit this content and produce documentation in various formats. While IfcDoc can edit all content within, now with all content exposed as C# and HTML files, any tool can be used to make edits to these files as well, such as Eclipse or Visual Studio.
+Since IFC adn the MVDs are now maintained in the new UML + MD based system, IfcDoc is not used anymore. The ownership of the IfcDoc code is unclear, and there is no clear insight and control over the license under which it is published, we cannot keep it under the buildingSMART organization any longer.
+This repository will be relocated and archived this Friday February 18, 2022 CET.
+ 
+We are aware there are community members that might want to retain access to the code. Please do so before the deadline.
+If anyone of you wants to claim ownership, please email technical@buildingsmart.org before February 18 2022 so we can facilitate the transfer.
