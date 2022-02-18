@@ -2,9 +2,11 @@
 NOTICE
 =================
 
+Since IFC and the MVDs are now maintained in the new UML + MD based system, IfcDoc is not used anymore. The ownership of the IfcDoc code is unclear for certain parts.
+The parts that have been developed in buildingSMART projects (under the Standards and Solutions program) are owned by buildingSMART International Limited, Kings House, Station Road, Kings Langley, Hertfordshire, WD4 8LZ, UK
 
-Since IFC adn the MVDs are now maintained in the new UML + MD based system, IfcDoc is not used anymore. The ownership of the IfcDoc code is unclear, and there is no clear insight and control over the license under which it is published, we cannot keep it under the buildingSMART organization any longer.
-This repository will be relocated and archived this Friday February 18, 2022 CET.
- 
-We are aware there are community members that might want to retain access to the code. Please do so before the deadline.
-If anyone of you wants to claim ownership, please email technical@buildingsmart.org before February 18 2022 so we can facilitate the transfer.
+The buildingSMART International Ltd. owned code is published under the MIT license. 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Parties that would like to claim ownership of other parts of the code are requested to make themselves known through technical@buildingsmart.org 
