@@ -1,9 +1,12 @@
 
-NOTICE
+README
 =================
 
 Since IFC and the MVDs are now maintained in the new UML + MD based system, IfcDoc is not used anymore. The ownership of the IfcDoc code is unclear for certain parts.
 The parts that have been developed in buildingSMART projects (under the Standards and Solutions program) are owned by buildingSMART International Limited, Kings House, Station Road, Kings Langley, Hertfordshire, WD4 8LZ, UK
+
+LICENSE
+=================
 
 The buildingSMART International Ltd. owned code is published under the MIT license. 
 
